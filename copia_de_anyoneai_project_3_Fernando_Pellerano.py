@@ -54,8 +54,10 @@ numerical_features = pd.DataFrame(application_train.select_dtypes(exclude='objec
 no_numerical_features = pd.DataFrame(application_train.select_dtypes(include='object').columns)
 # features_ = pd.merge(features, numerical_features) 
 # pd.merge(df1, df2, on="key", how="outer")
+categorical_features = features[features[0]<4]
+no_categorical_features = features[features[0]>4]
 
-
+columns = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/Project/columns.csv')
 """ Training data """
 
 # print(application_train.shape)
