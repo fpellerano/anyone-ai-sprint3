@@ -1,0 +1,1378 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../columns.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../columns.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link="#0563C1" vlink="#954F72">
+
+<table border=0 cellpadding=0 cellspacing=0 width=2049 style='border-collapse:
+ collapse;table-layout:fixed;width:1537pt'>
+ <col width=169 style='mso-width-source:userset;mso-width-alt:6001;width:127pt'>
+ <col width=228 style='mso-width-source:userset;mso-width-alt:8106;width:171pt'>
+ <col width=1652 style='mso-width-source:userset;mso-width-alt:58737;
+ width:1239pt'>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 width=169 style='height:14.4pt;width:127pt'>Description_1</td>
+  <td width=228 style='width:171pt'>Special</td>
+  <td width=1652 style='width:1239pt'>Description</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>TARGET</td>
+  <td>Target variable (1 - client with payment difficulties: he/she had late
+  payment more than X days on at least one of the first Y installments of the
+  loan in our sample, 0 - all other cases)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_CONTRACT_TYPE</td>
+  <td>Identification if loan is cash or revolving</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>CODE_GENDER</td>
+  <td>Gender of the client</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_OWN_CAR</td>
+  <td>Flag if the client owns a car</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_OWN_REALTY</td>
+  <td>Flag if client owns a house or flat</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>CNT_CHILDREN</td>
+  <td>Number of children the client has</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_INCOME_TOTAL</td>
+  <td>Income of the client</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_CREDIT</td>
+  <td>Credit amount of the loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_ANNUITY</td>
+  <td>Loan annuity</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_GOODS_PRICE</td>
+  <td>For consumer loans it is the price of the goods for which the loan is
+  given</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_TYPE_SUITE</td>
+  <td>Who was accompanying client when he was applying for the loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_INCOME_TYPE</td>
+  <td>Clients income type (businessman, working, maternity leave,…)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_EDUCATION_TYPE</td>
+  <td>Level of highest education the client achieved</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_FAMILY_STATUS</td>
+  <td>Family status of the client</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NAME_HOUSING_TYPE</td>
+  <td>What is the housing situation of the client (renting, living with
+  parents, ...)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REGION_POPULATION_RELATIVE</td>
+  <td>Normalized population of region where client lives (higher number means
+  the client lives in more populated region)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DAYS_BIRTH</td>
+  <td>Client's age in days at the time of application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DAYS_EMPLOYED</td>
+  <td>How many days before the application the person started current
+  employment</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DAYS_REGISTRATION</td>
+  <td>How many days before the application did client change his registration</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DAYS_ID_PUBLISH</td>
+  <td>How many days before the application did client change the identity
+  document with which he applied for the loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>OWN_CAR_AGE</td>
+  <td>Age of client's car</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_MOBIL</td>
+  <td>Did client provide mobile phone (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_EMP_PHONE</td>
+  <td>Did client provide work phone (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_WORK_PHONE</td>
+  <td>Did client provide home phone (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_CONT_MOBILE</td>
+  <td>Was mobile phone reachable (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_PHONE</td>
+  <td>Did client provide home phone (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_EMAIL</td>
+  <td>Did client provide email (1=YES, 0=NO)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>OCCUPATION_TYPE</td>
+  <td>What kind of occupation does the client have</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>CNT_FAM_MEMBERS</td>
+  <td>How many family members does client have</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REGION_RATING_CLIENT</td>
+  <td>Our rating of the region where client lives (1,2,3)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REGION_RATING_CLIENT_W_CITY</td>
+  <td>Our rating of the region where client lives with taking city into account
+  (1,2,3)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>WEEKDAY_APPR_PROCESS_START</td>
+  <td>On which day of the week did the client apply for the loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>HOUR_APPR_PROCESS_START</td>
+  <td>Approximately at what hour did the client apply for the loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REG_REGION_NOT_LIVE_REGION</td>
+  <td>Flag if client's permanent address does not match contact address
+  (1=different, 0=same, at region level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REG_REGION_NOT_WORK_REGION</td>
+  <td>Flag if client's permanent address does not match work address
+  (1=different, 0=same, at region level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVE_REGION_NOT_WORK_REGION</td>
+  <td>Flag if client's contact address does not match work address
+  (1=different, 0=same, at region level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REG_CITY_NOT_LIVE_CITY</td>
+  <td>Flag if client's permanent address does not match contact address
+  (1=different, 0=same, at city level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>REG_CITY_NOT_WORK_CITY</td>
+  <td>Flag if client's permanent address does not match work address
+  (1=different, 0=same, at city level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVE_CITY_NOT_WORK_CITY</td>
+  <td>Flag if client's contact address does not match work address
+  (1=different, 0=same, at city level)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ORGANIZATION_TYPE</td>
+  <td>Type of organization where client works</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>EXT_SOURCE_1</td>
+  <td>Normalized score from external data source</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>EXT_SOURCE_2</td>
+  <td>Normalized score from external data source</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>EXT_SOURCE_3</td>
+  <td>Normalized score from external data source</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>APARTMENTS_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>BASEMENTAREA_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BEGINEXPLUATATION_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BUILD_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>COMMONAREA_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ELEVATORS_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ENTRANCES_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMAX_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMIN_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LANDAREA_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAPARTMENTS_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAREA_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAPARTMENTS_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAREA_AVG</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>APARTMENTS_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>BASEMENTAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BEGINEXPLUATATION_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BUILD_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>COMMONAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ELEVATORS_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ENTRANCES_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMAX_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMIN_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LANDAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAPARTMENTS_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAPARTMENTS_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>APARTMENTS_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>BASEMENTAREA_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BEGINEXPLUATATION_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>YEARS_BUILD_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>COMMONAREA_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ELEVATORS_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>ENTRANCES_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMAX_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLOORSMIN_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LANDAREA_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAPARTMENTS_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>LIVINGAREA_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAPARTMENTS_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>NONLIVINGAREA_MEDI</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FONDKAPREMONT_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>HOUSETYPE_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>TOTALAREA_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>WALLSMATERIAL_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>EMERGENCYSTATE_MODE</td>
+  <td>Normalized information about building where the client lives, What is
+  average (_AVG suffix), modus (_MODE suffix), median (_MEDI suffix) apartment
+  size, common area, living area, age of building, number of elevators, number
+  of entrances, state of the building, number of floor</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>OBS_30_CNT_SOCIAL_CIRCLE</td>
+  <td>How many observation of client's social surroundings with observable 30
+  DPD (days past due) default</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DEF_30_CNT_SOCIAL_CIRCLE</td>
+  <td>How many observation of client's social surroundings defaulted on 30 DPD
+  (days past due)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>OBS_60_CNT_SOCIAL_CIRCLE</td>
+  <td>How many observation of client's social surroundings with observable 60
+  DPD (days past due) default</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DEF_60_CNT_SOCIAL_CIRCLE</td>
+  <td>How many observation of client's social surroundings defaulted on 60
+  (days past due) DPD</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>DAYS_LAST_PHONE_CHANGE</td>
+  <td>How many days before application did client change phone</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_2</td>
+  <td>Did client provide document 2</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_3</td>
+  <td>Did client provide document 3</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_4</td>
+  <td>Did client provide document 4</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_5</td>
+  <td>Did client provide document 5</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_6</td>
+  <td>Did client provide document 6</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_7</td>
+  <td>Did client provide document 7</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_8</td>
+  <td>Did client provide document 8</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_9</td>
+  <td>Did client provide document 9</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_10</td>
+  <td>Did client provide document 10</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_11</td>
+  <td>Did client provide document 11</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_12</td>
+  <td>Did client provide document 12</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_13</td>
+  <td>Did client provide document 13</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_14</td>
+  <td>Did client provide document 14</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_15</td>
+  <td>Did client provide document 15</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_16</td>
+  <td>Did client provide document 16</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_17</td>
+  <td>Did client provide document 17</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_18</td>
+  <td>Did client provide document 18</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_19</td>
+  <td>Did client provide document 19</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_20</td>
+  <td>Did client provide document 20</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>FLAG_DOCUMENT_21</td>
+  <td>Did client provide document 21</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_HOUR</td>
+  <td>Number of enquiries to Credit Bureau about the client one hour before
+  application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_DAY</td>
+  <td>Number of enquiries to Credit Bureau about the client one day before
+  application (excluding one hour before application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_WEEK</td>
+  <td>Number of enquiries to Credit Bureau about the client one week before
+  application (excluding one day before application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_MON</td>
+  <td>Number of enquiries to Credit Bureau about the client one month before
+  application (excluding one week before application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_QRT</td>
+  <td>Number of enquiries to Credit Bureau about the client 3 month before
+  application (excluding one month before application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>application_{train|test}.csv</td>
+  <td>AMT_REQ_CREDIT_BUREAU_YEAR</td>
+  <td>Number of enquiries to Credit Bureau about the client one day year
+  (excluding last 3 months before application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample - one loan in our sample can have 0,1,2 or more
+  related previous credits in credit bureau</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>SK_BUREAU_ID</td>
+  <td>Recoded ID of previous Credit Bureau credit related to our loan (unique
+  coding for each loan application)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>CREDIT_ACTIVE</td>
+  <td>Status of the Credit Bureau (CB) reported credits</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>CREDIT_CURRENCY</td>
+  <td>Recoded currency of the Credit Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>DAYS_CREDIT</td>
+  <td>How many days before current application did client apply for Credit
+  Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>CREDIT_DAY_OVERDUE</td>
+  <td>Number of days past due on CB credit at the time of application for
+  related loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>DAYS_CREDIT_ENDDATE</td>
+  <td>Remaining duration of CB credit (in days) at the time of application in
+  Home Credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>DAYS_ENDDATE_FACT</td>
+  <td>Days since CB credit ended at the time of application in Home Credit
+  (only for closed credit)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_CREDIT_MAX_OVERDUE</td>
+  <td>Maximal amount overdue on the Credit Bureau credit so far (at application
+  date of loan in our sample)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>CNT_CREDIT_PROLONG</td>
+  <td>How many times was the Credit Bureau credit prolonged</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_CREDIT_SUM</td>
+  <td>Current credit amount for the Credit Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_CREDIT_SUM_DEBT</td>
+  <td>Current debt on Credit Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_CREDIT_SUM_LIMIT</td>
+  <td>Current credit limit of credit card reported in Credit Bureau</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_CREDIT_SUM_OVERDUE</td>
+  <td>Current amount overdue on Credit Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>CREDIT_TYPE</td>
+  <td>Type of Credit Bureau credit (Car, cash,...)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>DAYS_CREDIT_UPDATE</td>
+  <td>How many days before loan application did last information about the
+  Credit Bureau credit come</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau.csv</td>
+  <td>AMT_ANNUITY</td>
+  <td>Annuity of the Credit Bureau credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau_balance.csv</td>
+  <td>SK_BUREAU_ID</td>
+  <td>Recoded ID of Credit Bureau credit (unique coding for each application) -
+  use this to join to CREDIT_BUREAU table</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau_balance.csv</td>
+  <td>MONTHS_BALANCE</td>
+  <td>Month of balance relative to application date (-1 means the freshest
+  balance date)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>bureau_balance.csv</td>
+  <td>STATUS</td>
+  <td>Status of Credit Bureau loan during the month (active, closed, DPD0-30,…
+  [C means closed, X means status unknown, 0 means no DPD, 1 means maximal did
+  during month between 1-30, 2 means DPD 31-60,… 5 means DPD 120+ or sold or
+  written off ] )</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>SK_ID_PREV</td>
+  <td>ID of previous credit in Home Credit related to loan in our sample. (One
+  loan in our sample can have 0,1,2 or more previous loans in Home Credit)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>MONTHS_BALANCE</td>
+  <td>Month of balance relative to application date (-1 means the information
+  to the freshest monthly snapshot, 0 means the information at application -
+  often it will be the same as -1 as many banks are not updating the
+  information to Credit Bureau regularly )</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>CNT_INSTALMENT</td>
+  <td>Term of previous credit (can change over time)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>CNT_INSTALMENT_FUTURE</td>
+  <td>Installments left to pay on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>NAME_CONTRACT_STATUS</td>
+  <td>Contract status during the month</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>SK_DPD</td>
+  <td>DPD (days past due) during the month of previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>POS_CASH_balance.csv</td>
+  <td>SK_DPD_DEF</td>
+  <td>DPD during the month with tolerance (debts with low loan amounts are
+  ignored) of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>SK_ID_PREV</td>
+  <td>ID of previous credit in Home credit related to loan in our sample. (One
+  loan in our sample can have 0,1,2 or more previous loans in Home Credit)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>MONTHS_BALANCE</td>
+  <td>Month of balance relative to application date (-1 means the freshest
+  balance date)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_BALANCE</td>
+  <td>Balance during the month of previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_CREDIT_LIMIT_ACTUAL</td>
+  <td>Credit card limit during the month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_DRAWINGS_ATM_CURRENT</td>
+  <td>Amount drawing at ATM during the month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_DRAWINGS_CURRENT</td>
+  <td>Amount drawing during the month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_DRAWINGS_OTHER_CURRENT</td>
+  <td>Amount of other drawings during the month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_DRAWINGS_POS_CURRENT</td>
+  <td>Amount drawing or buying goods during the month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_INST_MIN_REGULARITY</td>
+  <td>Minimal installment for this month of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_PAYMENT_CURRENT</td>
+  <td>How much did the client pay during the month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_PAYMENT_TOTAL_CURRENT</td>
+  <td>How much did the client pay during the month in total on the previous
+  credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_RECEIVABLE_PRINCIPAL</td>
+  <td>Amount receivable for principal on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_RECIVABLE</td>
+  <td>Amount receivable on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>AMT_TOTAL_RECEIVABLE</td>
+  <td>Total amount receivable on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>CNT_DRAWINGS_ATM_CURRENT</td>
+  <td>Number of drawings at ATM during this month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>CNT_DRAWINGS_CURRENT</td>
+  <td>Number of drawings during this month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>CNT_DRAWINGS_OTHER_CURRENT</td>
+  <td>Number of other drawings during this month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>CNT_DRAWINGS_POS_CURRENT</td>
+  <td>Number of drawings for goods during this month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>CNT_INSTALMENT_MATURE_CUM</td>
+  <td>Number of paid installments on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>NAME_CONTRACT_STATUS</td>
+  <td>Contract status (active signed,...) on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>SK_DPD</td>
+  <td>DPD (Days past due) during the month on the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>credit_card_balance.csv</td>
+  <td>SK_DPD_DEF</td>
+  <td>DPD (Days past due) during the month with tolerance (debts with low loan
+  amounts are ignored) of the previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>SK_ID_PREV</td>
+  <td>ID of previous credit in Home credit related to loan in our sample. (One
+  loan in our sample can have 0,1,2 or more previous loan applications in Home
+  Credit, previous application could, but not necessarily have to lead to
+  credit)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_CONTRACT_TYPE</td>
+  <td>Contract product type (Cash loan, consumer loan [POS] ,...) of the
+  previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>AMT_ANNUITY</td>
+  <td>Annuity of previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>AMT_APPLICATION</td>
+  <td>For how much credit did client ask on the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>AMT_CREDIT</td>
+  <td>Final credit amount on the previous application. This differs from
+  AMT_APPLICATION in a way that the AMT_APPLICATION is the amount for which the
+  client initially applied for, but during our approval process he could have
+  received different amount - AMT_CREDIT</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>AMT_DOWN_PAYMENT</td>
+  <td>Down payment on the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>AMT_GOODS_PRICE</td>
+  <td>Goods price of good that client asked for (if applicable) on the previous
+  application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>WEEKDAY_APPR_PROCESS_START</td>
+  <td>On which day of the week did the client apply for previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>HOUR_APPR_PROCESS_START</td>
+  <td>Approximately at what day hour did the client apply for the previous
+  application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>FLAG_LAST_APPL_PER_CONTRACT</td>
+  <td>Flag if it was last application for the previous contract. Sometimes by
+  mistake of client or our clerk there could be more applications for one
+  single contract</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NFLAG_LAST_APPL_IN_DAY</td>
+  <td>Flag if the application was the last application per day of the client.
+  Sometimes clients apply for more applications a day. Rarely it could also be
+  error in our system that one application is in the database twice</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NFLAG_MICRO_CASH</td>
+  <td>Flag Micro finance loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>RATE_DOWN_PAYMENT</td>
+  <td>Down payment rate normalized on previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>RATE_INTEREST_PRIMARY</td>
+  <td>Interest rate normalized on previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>RATE_INTEREST_PRIVILEGED</td>
+  <td>Interest rate normalized on previous credit</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_CASH_LOAN_PURPOSE</td>
+  <td>Purpose of the cash loan</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_CONTRACT_STATUS</td>
+  <td>Contract status (approved, cancelled, ...) of previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_DECISION</td>
+  <td>Relative to current application when was the decision about previous
+  application made</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_PAYMENT_TYPE</td>
+  <td>Payment method that client chose to pay for the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>CODE_REJECT_REASON</td>
+  <td>Why was the previous application rejected</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_TYPE_SUITE</td>
+  <td>Who accompanied client when applying for the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_CLIENT_TYPE</td>
+  <td>Was the client old or new client when applying for the previous
+  application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_GOODS_CATEGORY</td>
+  <td>What kind of goods did the client apply for in the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_PORTFOLIO</td>
+  <td>Was the previous application for CASH, POS, CAR, …</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_PRODUCT_TYPE</td>
+  <td>Was the previous application x-sell o walk-in</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>CHANNEL_TYPE</td>
+  <td>Through which channel we acquired the client on the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>SELLERPLACE_AREA</td>
+  <td>Selling area of seller place of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_SELLER_INDUSTRY</td>
+  <td>The industry of the seller</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>CNT_PAYMENT</td>
+  <td>Term of previous credit at application of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NAME_YIELD_GROUP</td>
+  <td>Grouped interest rate into small medium and high of the previous
+  application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>PRODUCT_COMBINATION</td>
+  <td>Detailed product combination of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_FIRST_DRAWING</td>
+  <td>Relative to application date of current application when was the first
+  disbursement of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_FIRST_DUE</td>
+  <td>Relative to application date of current application when was the first
+  due supposed to be of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_LAST_DUE_1ST_VERSION</td>
+  <td>Relative to application date of current application when was the first
+  due of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_LAST_DUE</td>
+  <td>Relative to application date of current application when was the last due
+  date of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>DAYS_TERMINATION</td>
+  <td>Relative to application date of current application when was the expected
+  termination of the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>previous_application.csv</td>
+  <td>NFLAG_INSURED_ON_APPROVAL</td>
+  <td>Did the client requested insurance during the previous application</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>SK_ID_PREV</td>
+  <td>ID of previous credit in Home credit related to loan in our sample. (One
+  loan in our sample can have 0,1,2 or more previous loans in Home Credit)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>SK_ID_CURR</td>
+  <td>ID of loan in our sample</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>NUM_INSTALMENT_VERSION</td>
+  <td>Version of installment calendar (0 is for credit card) of previous
+  credit. Change of installment version from month to month signifies that some
+  parameter of payment calendar has changed</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>NUM_INSTALMENT_NUMBER</td>
+  <td>On which installment we observe payment</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>DAYS_INSTALMENT</td>
+  <td>When the installment of previous credit was supposed to be paid (relative
+  to application date of current loan)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>DAYS_ENTRY_PAYMENT</td>
+  <td>When was the installments of previous credit paid actually (relative to
+  application date of current loan)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>AMT_INSTALMENT</td>
+  <td>What was the prescribed installment amount of previous credit on this
+  installment</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 style='height:14.4pt'>installments_payments.csv</td>
+  <td>AMT_PAYMENT</td>
+  <td>What the client actually paid on previous credit on this installment</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=169 style='width:127pt'></td>
+  <td width=228 style='width:171pt'></td>
+  <td width=1652 style='width:1239pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -11,7 +11,7 @@ application_{train|test}.csv;AMT_CREDIT;Credit amount of the loan
 application_{train|test}.csv;AMT_ANNUITY;Loan annuity
 application_{train|test}.csv;AMT_GOODS_PRICE;For consumer loans it is the price of the goods for which the loan is given
 application_{train|test}.csv;NAME_TYPE_SUITE;Who was accompanying client when he was applying for the loan
-application_{train|test}.csv;NAME_INCOME_TYPE;Clients income type (businessman, working, maternity leave,…)
+application_{train|test}.csv;NAME_INCOME_TYPE;Clients income type (businessman, working, maternity leave,?)
 application_{train|test}.csv;NAME_EDUCATION_TYPE;Level of highest education the client achieved
 application_{train|test}.csv;NAME_FAMILY_STATUS;Family status of the client
 application_{train|test}.csv;NAME_HOUSING_TYPE;What is the housing situation of the client (renting, living with parents, ...)
@@ -140,7 +140,7 @@ bureau.csv;DAYS_CREDIT_UPDATE;How many days before loan application did last inf
 bureau.csv;AMT_ANNUITY;Annuity of the Credit Bureau credit
 bureau_balance.csv;SK_BUREAU_ID;Recoded ID of Credit Bureau credit (unique coding for each application) - use this to join to CREDIT_BUREAU table
 bureau_balance.csv;MONTHS_BALANCE;Month of balance relative to application date (-1 means the freshest balance date)
-bureau_balance.csv;STATUS;Status of Credit Bureau loan during the month (active, closed, DPD0-30,… [C means closed, X means status unknown, 0 means no DPD, 1 means maximal did during month between 1-30, 2 means DPD 31-60,… 5 means DPD 120+ or sold or written off ] )
+bureau_balance.csv;STATUS;Status of Credit Bureau loan during the month (active, closed, DPD0-30,? [C means closed, X means status unknown, 0 means no DPD, 1 means maximal did during month between 1-30, 2 means DPD 31-60,? 5 means DPD 120+ or sold or written off ] )
 POS_CASH_balance.csv;SK_ID_PREV;ID of previous credit in Home Credit related to loan in our sample. (One loan in our sample can have 0,1,2 or more previous loans in Home Credit)
 POS_CASH_balance.csv;SK_ID_CURR;ID of loan in our sample
 POS_CASH_balance.csv;MONTHS_BALANCE;Month of balance relative to application date (-1 means the information to the freshest monthly snapshot, 0 means the information at application - often it will be the same as -1 as many banks are not updating the information to Credit Bureau regularly )
@@ -196,7 +196,7 @@ previous_application.csv;CODE_REJECT_REASON;Why was the previous application rej
 previous_application.csv;NAME_TYPE_SUITE;Who accompanied client when applying for the previous application
 previous_application.csv;NAME_CLIENT_TYPE;Was the client old or new client when applying for the previous application
 previous_application.csv;NAME_GOODS_CATEGORY;What kind of goods did the client apply for in the previous application
-previous_application.csv;NAME_PORTFOLIO;Was the previous application for CASH, POS, CAR, …
+previous_application.csv;NAME_PORTFOLIO;Was the previous application for CASH, POS, CAR, ?
 previous_application.csv;NAME_PRODUCT_TYPE;Was the previous application x-sell o walk-in
 previous_application.csv;CHANNEL_TYPE;Through which channel we acquired the client on the previous application
 previous_application.csv;SELLERPLACE_AREA;Selling area of seller place of the previous application
