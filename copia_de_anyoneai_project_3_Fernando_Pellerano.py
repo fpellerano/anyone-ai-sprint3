@@ -45,19 +45,43 @@ application_train = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3
 #application_test = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/application_test.csv', index_col=0)
 
 
-# categorical_features = application_train.select_dtypes(include='object').columns
-# categorical_features = application_train[categorical_features].nunique()
-# no_categorical_features = application_train.select_dtypes(exclude='object').columns
-# no_categorical_features = application_train[no_categorical_features].nunique()
 features = pd.DataFrame(application_train.nunique()) #cuenta todos los valores unicos por feature
+# columns of numerical features
 numerical_features = pd.DataFrame(application_train.select_dtypes(exclude='object').columns)
-no_numerical_features = pd.DataFrame(application_train.select_dtypes(include='object').columns)
-# features_ = pd.merge(features, numerical_features) 
-# pd.merge(df1, df2, on="key", how="outer")
-categorical_features = features[features[0]<4]
-no_categorical_features = features[features[0]>4]
+# sum of features unique of numerical features
+numerical_features = numerical_features.merge(features, left_on=0, right_index=True)
+numerical_features = numerical_features.rename(columns={'key_0':'0','0_y':'1'})
+numerical_features = numerical_features.loc[:,['0','1']]
+# data of n.f. 
+numerical_features = application_train.loc[:,(numerical_features['0'].tolist())]
+# percent of nan row of n.f.
+# nan_values_numerical_features = (numerical_features.isnull().sum()/numerical_features.shape[0]*100).sort_values(ascending=False)
+# fill na with median
+numerical_features = numerical_features.fillna(numerical_features.median())
+# percent of nan row of n.f pos fillna.
+# nan_values_numerical_features_2 = (numerical_features.isnull().sum()/numerical_features.shape[0]*100).sort_values(ascending=False)
 
-columns = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/Project/columns.csv')
+# sns.displot(numerical_features, col='COMMONAREA_AVG', kind='hist')
+# sns.displot(data=application_train, x='COMMONAREA_AVG')
+# sns.displot(data=numerical_features, x='COMMONAREA_AVG')
+
+no_numerical_features = pd.DataFrame(application_train.select_dtypes(include='object').columns)
+no_numerical_features = no_numerical_features.merge(features, left_on=0, right_index=True)
+no_numerical_features = no_numerical_features.rename(columns={'key_0':'0','0_y':'1'})
+no_numerical_features = no_numerical_features.loc[:,['0','1']]
+no_numerical_features = application_train.loc[:,(no_numerical_features['0'].tolist())]
+nan_values_no_numerical_features = (no_numerical_features.isnull().sum()/no_numerical_features.shape[0]*100).sort_values(ascending=False)
+no_numerical_features = no_numerical_features.apply(lambda x: x.fillna(x.value_counts().index[0]))
+nan_values_no_numerical_features_2 = (no_numerical_features.isnull().sum()/no_numerical_features.shape[0]*100).sort_values(ascending=False)
+
+# sns.displot(numerical_features, col='COMMONAREA_AVG', kind='hist')
+# sns.displot(data=application_train, x='COMMONAREA_AVG')
+# sns.displot(data=numerical_features, x='COMMONAREA_AVG')
+
+
+# moda el que mas se repite
+# LazyClasifier
+
 """ Training data """
 
 # print(application_train.shape)
