@@ -5,7 +5,7 @@ impute:
     para inputar tenemos que tomar el conjunto de train, fitear y aplicar pero todo en train.
     en datos nonumericos, fit >> el valor que mas se repite
 
-
+test - out no - 
 
 
 ### Getting the data
@@ -35,17 +35,58 @@ from sklearn.tree import DecisionTreeRegressor
 from pandas.plotting import scatter_matrix
 import gzip
 import warnings
+from sklearn import preprocessing
+import time
+
 
 """
 We need to predict whether 0 people qualify to get a loan, or 1 not.
 
 """
 warnings.filterwarnings('ignore')
-application_train = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/application_train.csv', index_col=0)
-#application_test = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/application_test.csv', index_col=0)
+application_train_df = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/application_train.csv', index_col=0)
+application_test_df = pd.read_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/application_test.csv', index_col=0)
+target=application_train_df.loc[:,['TARGET']]
 
+application_train = application_train_df.copy()
+application_test = application_test_df.copy()
 
+application_train.drop(['TARGET'], inplace=True, axis=1)
 features = pd.DataFrame(application_train.nunique()) #cuenta todos los valores unicos por feature
+application_train.replace('XNA', np.nan, inplace=True)
+application_train.replace('XAP', np.nan, inplace=True)
+application_test.replace('XNA', np.nan, inplace=True)
+application_test.replace('XAP', np.nan, inplace=True)
+application_train['DAYS_EMPLOYED'].replace(365243, np.nan, inplace = True)
+application_test['DAYS_EMPLOYED'].replace(365243, np.nan, inplace = True)
+
+""" OUTLIERS train """
+# sns.boxplot(data=application_train,y='DAYS_EMPLOYED').set(title='Outlayer Salary')
+# DAYS_EMPLOYED positivos llevar a na 
+# los bigotes de mayoy o menor llevarlos a la mediana 
+#pre
+# sns.boxplot(data=application_train, y="DAYS_EMPLOYED").set(title='Outlayer Salary')
+# plt.figure(figsize=(16, 8))
+# sns.displot(application_train, x='DAYS_EMPLOYED', kind='kde')
+
+col_outliers =  application_train.select_dtypes(include='number').columns.tolist()
+for feature in col_outliers:
+    Q1 = application_train[feature].quantile(0.25)
+    Q3 = application_train[feature].quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - (1.5*IQR)
+    upper = Q3 + (1.5*IQR)
+    # print(f'The numerical_feature {feature} has lower: {lower} upper: {upper} and range IQR: {IQR}')
+    application_train.loc[application_train[feature]>upper,feature]=application_train[feature].median()
+    application_train.loc[application_train[feature]<lower,feature]=application_train[feature].median()
+    # print(b)
+#post
+# sns.boxplot(data=application_train, y="DAYS_EMPLOYED").set(title='Outlayer Salary')
+# plt.figure(figsize=(16, 8))
+# sns.displot(application_train, x='DAYS_EMPLOYED', kind='kde')
+
+
+""" División de numerical features"""
 # columns of numerical features
 numerical_features = pd.DataFrame(application_train.select_dtypes(exclude='object').columns)
 # sum of features unique of numerical features
@@ -54,32 +95,290 @@ numerical_features = numerical_features.rename(columns={'key_0':'0','0_y':'1'})
 numerical_features = numerical_features.loc[:,['0','1']]
 # data of n.f. 
 numerical_features = application_train.loc[:,(numerical_features['0'].tolist())]
+# PRE
 # percent of nan row of n.f.
 # nan_values_numerical_features = (numerical_features.isnull().sum()/numerical_features.shape[0]*100).sort_values(ascending=False)
-# fill na with median
+# sns.displot(numerical_features, x='COMMONAREA_AVG', kind='kde')
+# FIT: completar los NAN con la mediana 
 numerical_features = numerical_features.fillna(numerical_features.median())
 # percent of nan row of n.f pos fillna.
+# POST
+# sns.displot(numerical_features, x='COMMONAREA_AVG', kind='kde')
 # nan_values_numerical_features_2 = (numerical_features.isnull().sum()/numerical_features.shape[0]*100).sort_values(ascending=False)
-
-# sns.displot(numerical_features, col='COMMONAREA_AVG', kind='hist')
-# sns.displot(data=application_train, x='COMMONAREA_AVG')
-# sns.displot(data=numerical_features, x='COMMONAREA_AVG')
-
-no_numerical_features = pd.DataFrame(application_train.select_dtypes(include='object').columns)
-no_numerical_features = no_numerical_features.merge(features, left_on=0, right_index=True)
-no_numerical_features = no_numerical_features.rename(columns={'key_0':'0','0_y':'1'})
-no_numerical_features = no_numerical_features.loc[:,['0','1']]
-no_numerical_features = application_train.loc[:,(no_numerical_features['0'].tolist())]
-nan_values_no_numerical_features = (no_numerical_features.isnull().sum()/no_numerical_features.shape[0]*100).sort_values(ascending=False)
-no_numerical_features = no_numerical_features.apply(lambda x: x.fillna(x.value_counts().index[0]))
-nan_values_no_numerical_features_2 = (no_numerical_features.isnull().sum()/no_numerical_features.shape[0]*100).sort_values(ascending=False)
-
-# sns.displot(numerical_features, col='COMMONAREA_AVG', kind='hist')
-# sns.displot(data=application_train, x='COMMONAREA_AVG')
-# sns.displot(data=numerical_features, x='COMMONAREA_AVG')
+numerical_features_t = pd.DataFrame(application_test.select_dtypes(exclude='object').columns)
+numerical_features_t = numerical_features_t.merge(features, left_on=0, right_index=True)
+numerical_features_t = numerical_features_t.rename(columns={'key_0':'0','0_y':'1'})
+numerical_features_t = numerical_features_t.loc[:,['0','1']]
+numerical_features_t = application_test.loc[:,(numerical_features_t['0'].tolist())]
+numerical_features_t = numerical_features_t.fillna(numerical_features_t.median())
 
 
-# moda el que mas se repite
+""" División de categorical features"""
+string_features = pd.DataFrame(application_train.select_dtypes(include='object').columns)
+string_features = string_features.merge(features, left_on=0, right_index=True)
+string_features = string_features.rename(columns={'key_0':'0','0_y':'1'})
+string_features = string_features.loc[:,['0','1']]
+string_features = application_train.loc[:,(string_features['0'].tolist())]
+# nan_values_categorial_features = (string_features.isnull().sum()/string_features.shape[0]*100).sort_values(ascending=False)
+string_features = string_features.apply(lambda x: x.fillna(x.value_counts().index[0]))
+# nan_values_categorial_features_2 = (string_features.isnull().sum()/string_features.shape[0]*100).sort_values(ascending=False)
+string_features_t = pd.DataFrame(application_test.select_dtypes(include='object').columns)
+string_features_t= string_features_t.merge(features, left_on=0, right_index=True)
+string_features_t= string_features_t.rename(columns={'key_0':'0','0_y':'1'})
+string_features_t= string_features_t.loc[:,['0','1']]
+string_features_t= application_test.loc[:,(string_features_t['0'].tolist())]
+# nan_values_categorial_features = (string_features.isnull().sum()/string_features.shape[0]*100).sort_values(ascending=False)
+string_features_t= string_features_t.apply(lambda x: x.fillna(x.value_counts().index[0]))
+# nan_values_categorial_features_2 = (string_features.isnull().sum()/string_features.shape[0]*100).sort_values(ascending=False)
+
+# """ INPUTE test (fit_transform) / test (transform)
+#     ohe categorical features with > 3
+#     LabelEncoder()  binarias y drop first
+#     StandartScaler() para los continuos
+
+ # """
+
+application_train.update(numerical_features, join='left', overwrite=True)
+application_train.update(string_features, join='left', overwrite=True)
+
+
+application_test.update(numerical_features_t, join='left', overwrite=True)
+application_test.update(string_features_t, join='left', overwrite=True)
+
+#237
+
+def get_dummies(train, test):
+    lbl_encoder = preprocessing.LabelEncoder()
+    oh_encoder = OneHotEncoder(dtype=int, drop='first', sparse=False)
+    train_dummies = pd.DataFrame()
+    test_dummies = pd.DataFrame()
+    for col in application_train:
+        if application_train[col].dtype == 'object':
+            if len(list(application_train[col].unique())) < 3:
+                lbl_encoder.fit(application_train[col])
+                application_train[col] = lbl_encoder.transform(application_train[col])
+                application_test[col] = lbl_encoder.transform(application_test[col])
+            else:
+                train_dummies = oh_encoder.fit_transform(application_train[[col]])
+                application_train[oh_encoder.categories_[0][1:]] = train_dummies
+                application_train.drop(col, axis=1, inplace=True)
+                test_dummies = oh_encoder.transform(application_test[[col]])
+                application_test[oh_encoder.categories_[0][1:]] = test_dummies
+                application_test.drop(col, axis=1, inplace=True)
+    train_col_list = list(application_train)
+
+dummies = get_dummies(application_train, application_test)   
+# features_2 = pd.DataFrame(application_train.nunique()) #cuent
+
+def scaler_mm(train, test):
+    numerical_features = application_train.select_dtypes(include='number').columns
+    for i in numerical_features:
+        if len(list(application_train[i].unique())) > 2:
+            scaler_mm = MinMaxScaler()
+            application_train[i] = scaler_mm.fit_transform(application_train[i].values.reshape(-1,1)) # se escala la o las variables independiente, NO las dependientes
+            application_test[i] = scaler_mm.transform(application_test[i].values.reshape(-1,1)) # se escala la o las variables independiente, NO las dependientes
+        
+scalermm = scaler_mm (application_train, application_test)    
+
+""" X train """
+application_train = np.array(application_train)
+""" X test """
+application_test = np.array(application_test)
+""" y train """
+target= np.array(target)
+
+
+""" MODEL """
+
+
+# lreg = LogisticRegression()
+# lreg.fit(application_train, target)
+# lreg_pred = lreg.predict_proba(application_test)[:,1]
+# print(f"Base Line Model Predict_proba: {lreg_pred}")
+
+# df_kaggle = pd.DataFrame()
+# df_kaggle['SK_ID_CURR'] = application_test_df.index
+# df_kaggle['TARGET'] = lreg_pred
+
+# df_kaggle.to_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/df_pellerano.csv', index=False)
+
+# """
+# Score: 0.72128
+# Public score: 0.72746
+# """
+
+
+# train, test = get_dummies(train, test)    
+#     # We make sure both dataframes have the same rows
+#     for col in train_col_list:
+#         if not col in list(test):
+#             test[col] = 0
+#     # We make sure rows are in the same order
+#     test = test[train_col_list]
+#     return application_train, test
+
+# """ 
+# LogisticRegression: 
+# Score: 0.72128 
+# Public score: 0.72746 
+# """
+
+# =======================================1==========================================#
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+
+# start = time.time()
+# rnd_forest_cl = RandomForestClassifier(random_state=7, n_jobs=-2)
+# rnd_forest_cl.fit(application_train, target)
+# rnd_forest_cl_predicts = rnd_forest_cl.predict_proba(application_test)[:,1]
+# print(f"Base Line Model Predict_proba: {rnd_forest_cl_predicts}")
+
+# end = time.time()
+# print("Time took by Random Forest Fit: ", (end - start))
+# df_kaggle = pd.DataFrame()
+# df_kaggle['SK_ID_CURR'] = application_test_df.index
+# df_kaggle['TARGET'] = rnd_forest_cl_predicts
+# df_kaggle.to_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/df_pellerano_rnd_forest_cl.csv', index=False)
+
+# """
+# RandomForestClassifier
+# Score: 0.63643
+# Public score: 0.64663
+# """
+
+# =======================================1==========================================#
+
+# from sklearn.model_selection import RandomizedSearchCV
+# import scipy as sp
+
+# hyperparameter_grid = {
+#   'bootstrap': [False],
+#   'max_depth': [10, None],
+#    'max_features': ['auto', 'sqrt'],
+#    'min_samples_leaf': sp.stats.randint(5, 10),
+#    'min_samples_split': sp.stats.randint(7, 11),
+#    'n_estimators': sp.stats.randint(270, 310)
+# }
+
+# start = time.time()
+# rnd_forest_cl = RandomForestClassifier(random_state=2905, n_jobs=-2)
+# clf = RandomizedSearchCV(rnd_forest_cl, hyperparameter_grid, random_state=2905, cv=None, scoring='roc_auc', n_iter=10, verbose=10)
+# search = clf.fit(application_train, target)
+# end = time.time()
+# print(search.best_params_)
+
+# end = time.time()
+# print("Time took by Random Forest Fit: ", end - start)
+
+# rnd_forest_cl_predicts = rnd_forest_cl.predict_proba(application_test)[:,1]
+# print(f"Base Line Model Predict_proba: {rnd_forest_cl_predicts}")
+
+# df_kaggle = pd.DataFrame()
+# df_kaggle['SK_ID_CURR'] = application_test_df.index
+# df_kaggle['TARGET'] = rnd_forest_cl_predicts
+# df_kaggle.to_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/df_pellerano_rnd_forest_cl_2.csv', index=False)
+
+
+
+# #=============================Training LightGBM Model==============================#
+import lightgbm as lgb
+train_x, test_x, train_y, test_y = train_test_split(application_train, target, test_size = 0.33, random_state = 2905, stratify=target)
+
+param_grid = {
+    'boosting_type': ['gbdt', 'dart'],
+    'num_leaves': list(range(20, 150)),
+    'learning_rate': list(np.logspace(np.log10(0.005), np.log10(0.5), base = 10, num = 1000)),
+    'subsample_for_bin': list(range(20000, 300000, 20000)),
+    'min_child_samples': list(range(20, 500, 5)),
+    'reg_alpha': list(np.linspace(0, 1)),
+    'reg_lambda': list(np.linspace(0, 1)),
+    'colsample_bytree': list(np.linspace(0.6, 1, 10)),
+    'subsample': list(np.linspace(0.5, 1, 100)),
+    'is_unbalance': [True, False]
+}
+parameters = {'objective': 'binary',
+              'metric' : 'auc',
+              'is_unbalance' : 'true',
+              'boosting' : 'gbdt',
+              'num_leaves' : 63,
+              'feature_fraction' : 0.5,
+              'bagging_fraction' : 0.5,
+              'bagging_freq' : 20,
+              'learning_rate' : 0.01,
+              'verbose' : -1
+            }
+start = time.time()
+train_set = lgb.Dataset(data=train_x, label=train_y)
+test_set = lgb.Dataset(data=test_x, label=test_y)
+
+lgb_model = lgb.train(parameters, train_set, valid_sets=test_set, num_boost_round=5000, early_stopping_rounds=50)
+# cv_results = lgb_model.cv(param_grid, train_set, num_boost_round=10000, nfold=5, early_stopping_rounds=100, metrics='auc', seed=42)
+#print(cv_results)
+end = time.time()
+print("Time took by LightGBM: ", end - start)
+
+
+# # #==================================================================================#
+
+# lgb_model_predicts = lgb_model.predict(application_test)
+# print(f"LightGBM Predict_proba: {lgb_model_predicts}")
+
+# df_kaggle = pd.DataFrame()
+# df_kaggle['SK_ID_CURR'] = application_test_df.index
+# df_kaggle['TARGET'] = lgb_model_predicts
+# df_kaggle.to_csv('C:/Users/u189197/Desktop/TAMBO/AnyoneAI/Sprint3/dataset/df_pellerano_lgb_model_predicts.csv', index=False)
+
+# """
+# Score: 0.73644
+# Public score: 0.73891
+# """
+
+
+# # #==================================================================================#
+
+
+
+
+
+
+
+
+
+
+
+
+""" align """
+# sumar celdas de train luego del impute, y reemplazarlas por un 0
+
+# def train_test_column_dif(train:pd.DataFrame, test:pd.DataFrame):
+#     columns_train = list(train.columns)
+#     columns_test = list(test.columns)
+
+#     for column in columns_train:
+#         if column not in columns_test:
+#             test[column] = np.zeros(len(test))
+
+#     for column in columns_test:
+#         if column not in columns_train:
+#             train[column] = np.zeros(len(train))
+#     return train, test
+
+
+# application_train, application_test = train_test_column_dif(application_train, application_test)
+
+
+
+
+
+
+
+
+#sacar el targuet antes de modelo
+
+
+
+
 # LazyClasifier
 
 """ Training data """
